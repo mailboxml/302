@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Welcome - edax.net</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67983821-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-67983821-4');
+</script>
+
+
+<!-- Clarity tracking code for http://edax.net/ -->
+<script>
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "6k9il39nvi");
+</script>
+
+
+</head>
+<body>
+	
+
+	<div class="bg-img1 size1 flex-w flex-c-m p-t-90 p-b-55 p-l-15 p-r-15" style="background-color: rgb(172, 169, 169);">
+		<div class="wsize1 bor1 bg1 p-t-85 p-b-45 p-l-15 p-r-15 respon1">
+			<div class="wrappic1">
+				<img src="images/Sigla-edax-670x228.svg" alt="edax.net logo">
+			</div>
+
+			<p class="txt-center m1-txt1 p-t-33 p-b-68">
+				<span
+				class="txt-rotate"
+				data-period="2000"
+				data-rotate='[ "Welcome to edax.net ", "Updating website ... ", "Check back later! " ]'></span> 
+			</p>
+
+			
+			
+			<p class="s1-txt4 txt-center p-t-10">
+				 <span class="bor2">www.edax.net</span> 
+			</p>
+			
+		</div>
+	</div>
+
+
+<!-- JavaScript pentru Typing Carousel -->
+
+<script >
+	var TxtRotate = function(el, toRotate, period) {
+		this.toRotate = toRotate;
+		this.el = el;
+		this.loopNum = 0;
+		this.period = parseInt(period, 10) || 2000;
+		this.txt = '';
+		this.tick();
+		this.isDeleting = false;
+	  };
+	  
+	  TxtRotate.prototype.tick = function() {
+		var i = this.loopNum % this.toRotate.length;
+		var fullTxt = this.toRotate[i];
+	  
+		if (this.isDeleting) {
+		  this.txt = fullTxt.substring(0, this.txt.length - 1);
+		} else {
+		  this.txt = fullTxt.substring(0, this.txt.length + 1);
+		}
+	  
+		this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+	  
+		var that = this;
+		var delta = 250 - Math.random() * 100;
+	  
+		if (this.isDeleting) { delta /= 3; }
+	  
+		if (!this.isDeleting && this.txt === fullTxt) {
+		  delta = this.period;
+		  this.isDeleting = true;
+		} else if (this.isDeleting && this.txt === '') {
+		  this.isDeleting = false;
+		  this.loopNum++;
+		  delta = 500;
+		}
+	  
+		setTimeout(function() {
+		  that.tick();
+		}, delta);
+	  };
+	  
+	  window.onload = function() {
+		var elements = document.getElementsByClassName('txt-rotate');
+		for (var i=0; i<elements.length; i++) {
+		  var toRotate = elements[i].getAttribute('data-rotate');
+		  var period = elements[i].getAttribute('data-period');
+		  if (toRotate) {
+			new TxtRotate(elements[i], JSON.parse(toRotate), period);
+		  }
+		}
+		// INJECT CSS
+		var css = document.createElement("style");
+		css.type = "text/css";
+		css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+		document.body.appendChild(css);
+	  };
+	
+</script>	
+
+
+
+</body>
+</html>
